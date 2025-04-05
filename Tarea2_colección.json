@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "9e5f5a3b-43c2-4a3c-a2e5-4eb4f0a8c0d5",
+		"name": "API Estudiantes Node.js SQLite",
+		"description": "Colección para probar la API REST de gestión de estudiantes creada con Node.js y SQLite",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Obtener todos los estudiantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"students"
+					]
+				},
+				"description": "Obtiene la lista completa de estudiantes de la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear estudiante",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstname",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Pérez",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "20",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"students"
+					]
+				},
+				"description": "Crea un nuevo estudiante en la base de datos"
+			},
+			"response": []
+		},
+		{
+			"name": "Crear estudiante (JSON)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"María\",\n    \"lastname\": \"González\",\n    \"gender\": \"Female\",\n    \"age\": \"22\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/students",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"students"
+					]
+				},
+				"description": "Crea un nuevo estudiante usando JSON en lugar de form data"
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener estudiante por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/student/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"student",
+						"1"
+					]
+				},
+				"description": "Obtiene un estudiante específico por su ID"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar estudiante",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstname",
+							"value": "Juan",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Pérez",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "21",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/student/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"student",
+						"1"
+					]
+				},
+				"description": "Actualiza la información de un estudiante existente"
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar estudiante (JSON)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstname\": \"Juan Carlos\",\n    \"lastname\": \"Pérez López\",\n    \"gender\": \"Male\",\n    \"age\": \"23\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/student/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"student",
+						"1"
+					]
+				},
+				"description": "Actualiza un estudiante usando JSON"
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar estudiante",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/student/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"student",
+						"1"
+					]
+				},
+				"description": "Elimina un estudiante de la base de datos"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string",
+			"description": "URL base de la API. Cambia 'localhost' por la IP de tu máquina virtual cuando sea necesario."
+		}
+	]
+}
